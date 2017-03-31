@@ -10,13 +10,36 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
+		$responce = "พูดอัลไลมะถวกไม่เข้าจายยย";
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$result = $event['message']['text'];
+			$message = $event['message']['text'];
+			if(strpos($message, 'กี่โมงแล้วโว้ย') !== false){
+				(time(" HH:mm จ้าาา",$t));
+			}else if(strpos($message, "กินแะไรดี")){
+				$currentHour = date('H');
+				if ($currentHour>5 && $currentHour>9) {
+					$responce = "อาหารเช้า ควรเป็นอาหารเบาๆ เช่นโจ๊กดีม๊ะ";
+				}else if($currentHour>11 && $currentHour<14){
+					$responce = "กลางวันต้องจัดหนัก ผัดกระเพราพิเศษเป็นไง";
+				}else if($currentHour>17 && $currentHour<21){
+					$responce = "เวลานี้ะไรก็ได้มั้ง เน้นมีเหล้าขายเป็นพอ กิกิ";
+				}else{
+					$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
+				}
+			}
+
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+			# code...
+			// Get text sent
+			$responce = "รูปสวยมากๆจร๊ะ";
+		
+/*			responce("รูปสวยมากๆจร๊ะ",$replyToken);
+*/		}
 			$replyToken = $event['replyToken'];
 			$messages = [
 				'type' => 'text',
-				'text' => $result
+				'text' => $responce
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -36,20 +59,6 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			/*responce($text,$replyToken,$access_token);
-			$responce = makeResponceText($text);
-
-			responce($responce, $replyToken);*/
-
-			// Build message to reply back
-
-		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			# code...
-			// Get text sent
-			//$text = generateRandomString();
-			$replyToken = $event['replyToken'];
-/*			responce("รูปสวยมากๆจร๊ะ",$replyToken);
-*/		}
 	}
 }
 
