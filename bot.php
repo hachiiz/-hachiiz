@@ -74,7 +74,13 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo generateRandomString();
+echo generateRandomString();
+echo generateRandomString();
+echo generateRandomString();
+echo generateRandomString();
+echo generateRandomString();
+
 
 $responceImage = array("สวยจัง", "หวายยยยขี้เหล่!!!", "บร๊ะๆๆๆ", "......", "รูปนี้จัดว่าเด็ด");
 function generateRandomString() {
