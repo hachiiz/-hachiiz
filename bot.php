@@ -27,6 +27,8 @@ if (!is_null($events['events'])) {
 				}else{
 					$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
 				}
+			}else if(strpos($message, "สวัสดี") !== false){
+				$responce = "สวัสดีจ้าา คิคิ";
 			}
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
