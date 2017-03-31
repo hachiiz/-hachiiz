@@ -82,7 +82,7 @@ echo generateRandomString();
 echo generateRandomString();
 
 
-$responceImage = array('สวยจัง', 'หวายยยยขี้เหล่!!!', 'บร๊ะๆๆๆ', '......', 'รูปนี้จัดว่าเด็ด');
+$responceImage = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
 function generateRandomString() {
    $index = rand(0, 3);
    echo $index;
