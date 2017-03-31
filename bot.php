@@ -41,10 +41,10 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}else if ($event['type'] == 'message') {
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			# code...
 			// Get text sent
-			$text = $event['message']['type'];
+			$text = generateRandomString();
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -75,4 +75,12 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
+
+$responceImage = array("สวยจัง", "หวายยยยขี้เหล่!!!", "บร๊ะๆๆๆ", "......", "รูปนี้จัดว่าเด็ด");
+function generateRandomString() {
+   $index = rand(0, 4);
+   return $responceImage[index];
+   
+} 
+
 ?>
