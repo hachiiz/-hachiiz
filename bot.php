@@ -15,7 +15,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$message = $event['message']['text'];
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
-				$responce = time("HH:mm");
+				$responce = date("g:i a");
 			}else if(strpos($message, "กินแะไรดี") !== false){
 				$currentHour = date('H');
 				if ($currentHour>5 && $currentHour>9) {
