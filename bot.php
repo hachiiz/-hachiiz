@@ -47,6 +47,7 @@ function makeResponceText($message){
 			$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
 		}
 	}
+	return $responce ;
 }
 
 function responce($result){
@@ -72,5 +73,6 @@ function responce($result){
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
+			ch
 }
 ?>
