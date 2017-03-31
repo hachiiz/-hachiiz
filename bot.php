@@ -13,10 +13,12 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-			responce($text);
+			$replyToken = $event['replyToken'];
+
+			responce($text,$replyToken);
 			$responce = makeResponceText($text);
 
-			responce($responce);
+			responce($responce, $replyToken);
 
 			// Build message to reply back
 
@@ -24,7 +26,8 @@ if (!is_null($events['events'])) {
 			# code...
 			// Get text sent
 			//$text = generateRandomString();
-			responce("รูปสวยมากๆจร๊ะ")
+			$replyToken = $event['replyToken'];
+			responce("รูปสวยมากๆจร๊ะ",$replyToken);
 		}
 	}
 }
@@ -48,9 +51,7 @@ function makeResponceText($message){
 	return $responce ;
 }
 
-function responce($result){
-				$replyToken = $event['replyToken'];
-
+function responce($result,$replyToken){
 				$messages = [
 				'type' => 'text',
 				'text' => $result
