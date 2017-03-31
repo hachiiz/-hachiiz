@@ -85,8 +85,6 @@ echo generateRandomString();
 $responceImage = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
 function generateRandomString() {
    $index = rand(0, 3);
-   echo $index;
-   echo $responceImage[$index];
    return $responceImage[$index];
 } 
 
