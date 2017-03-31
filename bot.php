@@ -36,10 +36,10 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			responce($text,$replyToken,$access_token);
+			/*responce($text,$replyToken,$access_token);
 			$responce = makeResponceText($text);
 
-			responce($responce, $replyToken);
+			responce($responce, $replyToken);*/
 
 			// Build message to reply back
 
@@ -48,12 +48,12 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$text = generateRandomString();
 			$replyToken = $event['replyToken'];
-			responce("รูปสวยมากๆจร๊ะ",$replyToken);
-		}
+/*			responce("รูปสวยมากๆจร๊ะ",$replyToken);
+*/		}
 	}
 }
 
-function makeResponceText($message){
+/*function makeResponceText($message){
 	$responce = "พูดอัลไลมะถวกไม่เข้าจายยย"
 	if(strpos($message, 'กี่โมงแล้วโว้ย') !== false){
 		(time(" HH:mm จ้าาา",$t));
@@ -96,5 +96,5 @@ function responce($result,$replyToken,$access_token){
 			$result = curl_exec($ch);
 			curl_close($ch);
 		
-}
+}*/
 ?>
