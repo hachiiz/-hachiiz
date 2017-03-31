@@ -13,45 +13,46 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+
+			$responce = makeResponceText($text);
+
+			responce($responce);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
 
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			# code...
 			// Get text sent
-			$text = generateRandomString();
-			// Get replyToken
-			$replyToken = $event['replyToken'];
+			//$text = generateRandomString();
+			responce("รูปสวยมากๆจร๊ะ")
+		}
+	}
+}
 
-			// Build message to reply back
-			$messages = [
+function makeResponceText($message){
+	$responce = "พูดอัลไลมะถวกไม่เข้าจายยย"
+	if(strpos($message, 'กี่โมงแล้วโว้ย') !== false){
+		(time(" HH:mm จ้าาา",$t));
+	}else if(strpos($message, "กินแะไรดี")){
+		$currentHour = date('H');
+		if ($currentHour>5 && $currentHour>9) {
+			$responce = "อาหารเช้า ควรเป็นอาหารเบาๆ เช่นโจ๊กดีม๊ะ";
+		}else if($currentHour>11 && $currentHour<14){
+			$responce = "กลางวันต้องจัดหนัก ผัดกระเพราพิเศษเป็นไง";
+		}else if($currentHour>17 && $currentHour<21){
+			$responce = "เวลานี้ะไรก็ได้มั้ง เน้นมีเหล้าขายเป็นพอ กิกิ";
+		}else{
+			$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
+		}
+	}
+}
+
+function responce($result){
+				$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $result
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -71,21 +72,5 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-		}
-	}
 }
-echo generateRandomString();
-echo generateRandomString();
-echo generateRandomString();
-echo generateRandomString();
-echo generateRandomString();
-echo generateRandomString();
-
-
-$responceImage = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
-function generateRandomString() {
-   $index = rand(0, 3);
-   return $responceImage[$index];
-} 
-
 ?>
