@@ -17,8 +17,6 @@ if (!is_null($events['events'])) {
 			$responce = makeResponceText($text);
 
 			responce($responce);
-			// Get replyToken
-			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 
@@ -51,6 +49,8 @@ function makeResponceText($message){
 }
 
 function responce($result){
+				$replyToken = $event['replyToken'];
+
 				$messages = [
 				'type' => 'text',
 				'text' => $result
