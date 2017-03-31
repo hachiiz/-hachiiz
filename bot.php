@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
 			$message = $event['message']['text'];
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
-			}else if(strpos($message, "กินแะไรดี") !== false){
+			}else if(strpos($message, "กินอะไรดี") !== false){
 				$currentHour = date('H');
 				if ($currentHour>5 && $currentHour>9) {
 					$responce = "อาหารเช้า ควรเป็นอาหารเบาๆ เช่นโจ๊กดีม๊ะ";
