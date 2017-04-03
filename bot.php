@@ -14,6 +14,20 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$message = $event['message']['text'];
+			$responce = makeResponceText($message);
+
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+			# code...
+			// Get text sent
+			$responce = "รูปสวยมากๆจร๊ะ";
+		}
+			$replyToken = $event['replyToken'];
+			responce($responce, $replyToken, $access_token)
+	}
+}
+?>
+<?php
+function makeResponceText($message){
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
 			}else if(strpos($message, "กินอะไรดี") !== false){
@@ -30,36 +44,6 @@ if (!is_null($events['events'])) {
 			}else if(strpos($message, "สวัสดี") !== false){
 				$responce = "สวัสดีจ้าา คิคิ";
 			}
-
-		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			# code...
-			// Get text sent
-			$responce = "รูปสวยมากๆจร๊ะ";
-		
-/*			responce("รูปสวยมากๆจร๊ะ",$replyToken);
-*/		}
-			$replyToken = $event['replyToken'];
-			responce($responce, $replyToken, $access_token)
-	}
-}
-?>
-<?php
-function makeResponceText($message){
-	$responce = "พูดอัลไลมะถวกไม่เข้าจายยย"
-	if(strpos($message, 'กี่โมงแล้วโว้ย') !== false){
-		(time(" HH:mm จ้าาา",$t));
-	}else if(strpos($message, "กินแะไรดี")){
-		$currentHour = date('H');
-		if ($currentHour>5 && $currentHour>9) {
-			$responce = "อาหารเช้า ควรเป็นอาหารเบาๆ เช่นโจ๊กดีม๊ะ";
-		}else if($currentHour>11 && $currentHour<14){
-			$responce = "กลางวันต้องจัดหนัก ผัดกระเพราพิเศษเป็นไง";
-		}else if($currentHour>17 && $currentHour<21){
-			$responce = "เวลานี้ะไรก็ได้มั้ง เน้นมีเหล้าขายเป็นพอ กิกิ";
-		}else{
-			$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
-		}
-	}
 	return $responce ;
 }
 
