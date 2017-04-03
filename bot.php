@@ -14,15 +14,17 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$message = $event['message']['text'];
-			$responce = makeResponceText($message);
+			$replyToken = $event['replyToken'];
+			responce(makeResponceText($message), $replyToken, $access_token)
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			# code...
 			// Get text sent
 			$responce = "รูปสวยมากๆจร๊ะ";
-		}
-			$replyToken = $event['replyToken'];
+		$replyToken = $event['replyToken'];
 			responce($responce, $replyToken, $access_token)
+		}
+			
 	}
 }
 ?>
