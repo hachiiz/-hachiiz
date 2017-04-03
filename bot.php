@@ -25,10 +25,16 @@ if (!is_null($events['events'])) {
 				}else if($currentHour>17 && $currentHour<21){
 					$responce = "เวลานี้ะไรก็ได้มั้ง เน้นมีเหล้าขายเป็นพอ กิกิ";
 				}else{
-					$responce = ($currentHour + "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน");
+					$responce = "ใช้เวลาแดกมั้ยมึง แสรดดดดดดดดดดด อีอ้วน";
 				}
 			}else if(strpos($message, "สวัสดี") !== false){
 				$responce = "สวัสดีจ้าา คิคิ";
+			}else if(strpos($message, "เป็นคนยังไง") !== false){
+				$testlist = var_dump( explode( "เป็นคนยังไง", $message ) );
+				$testlist[0];
+				$input = array("ดูดี", "ขี้เหล่", "ติงต๊อง", "บ้าบอ", "แปลกๆ","ไม่มอยากจะบรรยาย", "ไม่รู้เว้ยยย");
+				$rand_keys = array_rand($input, 1);
+				$responce = ($testlist[0]."เป็นคน".$rand_keys[0]);
 			}
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
