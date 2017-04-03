@@ -36,10 +36,10 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$responce = "รูปสวยมากๆจร๊ะ";
 		}
-		$replyToken = $event['replyToken'];
+			$replyToken = $event['replyToken'];
 				$messages = [
 				'type' => 'text',
-				'text' => $result
+				'text' => $responce
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
