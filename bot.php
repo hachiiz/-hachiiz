@@ -1,4 +1,4 @@
-<?php
+<? php
 $access_token = 'yATEFXRiGBMdLHONoWTkIduiBN5t2tAlhI3qsH6bvSMnlslg6Ve6ax5CHvXW3LgTsDPO5h/z6VmbX6GHh7hx28AiV3FW/ZqoP1cZJxqDu8WoXl7hoq46PCT6gJoTCuodQl3qPHugynJ18leRiS09IgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 	}
 }
 ?>
-<?php
+<? php
 function makeResponceText($message){
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
@@ -47,8 +47,9 @@ function makeResponceText($message){
 				$responce = "สวัสดีจ้าา คิคิ";
 			}
 	return $responce ;
-}
+} ?>
 
+<? php
 function responce($result,$replyToken,$access_token){
 				$messages = [
 				'type' => 'text',
