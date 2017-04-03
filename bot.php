@@ -38,11 +38,11 @@ if (!is_null($events['events'])) {
 			}else if(strpos($message, "ดีมั้ย")!== false){
 				$input = array("จัดไป", "ดีซิ","ไม่ดีหรอกแกร");
 				$rand_keys = rand(0, $input.count);
-				$responce = ($input[$rand_keys]);
+				$responce = $input[$rand_keys];
 			}else if(strpos($message, "หิว")!== false){
 				$input = array("สงบจิตใจแล้วทนไป", "อย่างนี้ต้องจัด");
 				$rand_keys = rand(0, $input.count);
-				$responce = ($input[$rand_keys]);
+				$responce = $input[$rand_keys];
 			}
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
