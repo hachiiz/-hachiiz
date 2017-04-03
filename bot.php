@@ -21,14 +21,12 @@ if (!is_null($events['events'])) {
 			# code...
 			// Get text sent
 			$responce = "รูปสวยมากๆจร๊ะ";
-		$replyToken = $event['replyToken'];
+			$replyToken = $event['replyToken'];
 			responce($responce, $replyToken, $access_token);
 		}
 			
 	}
 }
-?>
-<?php
 function makeResponceText($message, $replyToken, $access_token){
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
@@ -48,9 +46,7 @@ function makeResponceText($message, $replyToken, $access_token){
 			}
 			responce($responce,$replyToken,$access_token)
 	return $responce ;
-} ?>
-
-<?php
+}
 function responce($result,$replyToken,$access_token){
 				$messages = [
 				'type' => 'text',
