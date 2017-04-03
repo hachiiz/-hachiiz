@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
 			if(strpos($message, "กี่โมงแล้ว") !== false){
 				$responce = date("g:i a");
 			}else if(strpos($message, "กินอะไร") !== false){
-				$currentHour = date('h')+10;
+				$currentHour = (date('h')+7);
 				if ($currentHour>5 && $currentHour>9) {
 					$responce = "อาหารเช้า ควรเป็นอาหารเบาๆ เช่นโจ๊กดีม๊ะ";
 				}else if($currentHour>11 && $currentHour<14){
