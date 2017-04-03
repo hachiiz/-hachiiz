@@ -14,20 +14,6 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$message = $event['message']['text'];
-			$replyToken = $event['replyToken'];
-			makeResponceText($message, $replyToken, $access_token);
-
-		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			# code...
-			// Get text sent
-			$responce = "รูปสวยมากๆจร๊ะ";
-			$replyToken = $event['replyToken'];
-			responce($responce, $replyToken, $access_token);
-		}
-			
-	}
-}
-function makeResponceText($message, $replyToken, $access_token){
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
 			}else if(strpos($message, "กินอะไรดี") !== false){
@@ -44,10 +30,13 @@ function makeResponceText($message, $replyToken, $access_token){
 			}else if(strpos($message, "สวัสดี") !== false){
 				$responce = "สวัสดีจ้าา คิคิ";
 			}
-			responce($responce,$replyToken,$access_token)
-	return $responce ;
-}
-function responce($result,$replyToken,$access_token){
+
+		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+			# code...
+			// Get text sent
+			$responce = "รูปสวยมากๆจร๊ะ";
+		}
+		$replyToken = $event['replyToken'];
 				$messages = [
 				'type' => 'text',
 				'text' => $result
@@ -70,7 +59,8 @@ function responce($result,$replyToken,$access_token){
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-		
+			
+	}
 }
 ?>
 
