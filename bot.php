@@ -1,4 +1,4 @@
-<? php
+<?php
 $access_token = 'yATEFXRiGBMdLHONoWTkIduiBN5t2tAlhI3qsH6bvSMnlslg6Ve6ax5CHvXW3LgTsDPO5h/z6VmbX6GHh7hx28AiV3FW/ZqoP1cZJxqDu8WoXl7hoq46PCT6gJoTCuodQl3qPHugynJ18leRiS09IgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -15,21 +15,21 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$message = $event['message']['text'];
 			$replyToken = $event['replyToken'];
-			responce(makeResponceText($message), $replyToken, $access_token)
+			makeResponceText($message, $replyToken, $access_token);
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			# code...
 			// Get text sent
 			$responce = "รูปสวยมากๆจร๊ะ";
 		$replyToken = $event['replyToken'];
-			responce($responce, $replyToken, $access_token)
+			responce($responce, $replyToken, $access_token);
 		}
 			
 	}
 }
 ?>
-<? php
-function makeResponceText($message){
+<?php
+function makeResponceText($message, $replyToken, $access_token){
 			if(strpos($message, "กี่โมงแล้วโว้ย") !== false){
 				$responce = date("g:i a");
 			}else if(strpos($message, "กินอะไรดี") !== false){
@@ -46,10 +46,11 @@ function makeResponceText($message){
 			}else if(strpos($message, "สวัสดี") !== false){
 				$responce = "สวัสดีจ้าา คิคิ";
 			}
+			responce($responce,$replyToken,$access_token)
 	return $responce ;
 } ?>
 
-<? php
+<?php
 function responce($result,$replyToken,$access_token){
 				$messages = [
 				'type' => 'text',
