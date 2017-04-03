@@ -32,9 +32,17 @@ if (!is_null($events['events'])) {
 			}else if(strpos($message, "เป็นคนยังไง") !== false){
 				$testlist = explode("เป็นคนยังไง", $message);
 				$testlist[0];
-				$input = array("ดูดี", "ขี้เหล่", "ติงต๊อง", "บ้าบอ", "แปลกๆ","ไม่มอยากจะบรรยาย", "ไม่รู้เว้ยยย");
+				$input = array("ดูดี", "ขี้เหล่", "ติงต๊อง", "บ้าบอ", "แปลกๆ","ไม่อยากจะบรรยาย", "ไม่รู้เว้ยยย");
 				$rand_keys = rand(0, 6);
 				$responce = ($testlist[0]."เป็นคน".$input[$rand_keys]);
+			}else if(strpos($message, "ดีมั้ย")!== false){
+				$input = array("จัดไป", "ดีซิ","ไม่ดีหรอกแกร");
+				$rand_keys = rand(0, $input.count);
+				$responce = ($input[$rand_keys]);
+			}else if(strpos($message, "หิว")!== false){
+				$input = array("สงบจิตใจแล้วทนไป", "อย่างนี้ต้องจัด");
+				$rand_keys = rand(0, $input.count);
+				$responce = ($input[$rand_keys]);
 			}
 
 		}else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
