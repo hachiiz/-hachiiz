@@ -39,32 +39,12 @@ if (!is_null($events['events'])) {
 /*			responce("รูปสวยมากๆจร๊ะ",$replyToken);
 */		}
 			$replyToken = $event['replyToken'];
-			$messages = [
-				'type' => 'text',
-				'text' => $responce
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
+			responce($responce, $replyToken, $access_token)
 	}
 }
-
-/*function makeResponceText($message){
+?>
+<?php
+function makeResponceText($message){
 	$responce = "พูดอัลไลมะถวกไม่เข้าจายยย"
 	if(strpos($message, 'กี่โมงแล้วโว้ย') !== false){
 		(time(" HH:mm จ้าาา",$t));
@@ -107,5 +87,6 @@ function responce($result,$replyToken,$access_token){
 			$result = curl_exec($ch);
 			curl_close($ch);
 		
-}*/
+}
 ?>
+
